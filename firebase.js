@@ -2,7 +2,7 @@
   // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
 import { collection, getFirestore, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js"
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js"
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js"
 
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -75,7 +75,6 @@ export const signUser = async(email, password) => {
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
     const user = userCredential.user;
-    console.log(user)
     })
     .catch((error) => {
         console.log(error.code)
@@ -90,12 +89,18 @@ export const authUser = () => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             const uid = user.uid;
-            console.log(uid)
-            console.log(user.email)
-            return true
+            return user;
         } else {
-            return false
+            return null
         }
     });
 }
 
+export const userOut = () => {
+    signOut(auth).then(() => {
+        console.log('sesion cerrada')
+        authUser()
+    }).catch((error) => {
+        console.log(error)
+    });
+}
