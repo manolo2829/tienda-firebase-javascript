@@ -32,7 +32,7 @@
                             <li><a class="dropdown-item" href="./pages/user.html?form=checkin">Registrarse</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown" >
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Admin
                         </a>
@@ -42,9 +42,18 @@
                         </ul>
                     </li>
                 </ul>
-                <a href="#" class="navbar-text" id="linkSignOut">
-                    Cerrar Sesion
-                </a>
+                <div class="dropdown navbar-text" id="userMethodsContainer">
+                    <a href="#" class="navbar-text dropdown-toggle" type="button" id="userMethods" data-bs-toggle="dropdown" aria-expanded="false">
+                        user
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="userMethods">
+                      <li><a class="dropdown-item" href="#">Carrito</a></li>
+                      <li><a href="./index.html" class="dropdown-item" id="linkSignOut">
+                        Cerrar Sesion
+                        </a></li>
+                    </ul>
+                </div>
+                
             </div>
             </div>
         </nav>

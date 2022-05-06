@@ -42,9 +42,17 @@
                         </ul>
                     </li>
                 </ul>
-                <a href="../index.html" class="navbar-text" id="linkSignOut">
-                    Cerrar Sesion
-                </a>
+                <div class="dropdown navbar-text" id="userMethodsContainer">
+                    <a href="#" class="navbar-text dropdown-toggle" type="button" id="userMethods" data-bs-toggle="dropdown" aria-expanded="false">
+                        user
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="userMethods">
+                      <li><a class="dropdown-item" href="#">Carrito</a></li>
+                      <li><a href="../index.html" class="dropdown-item" id="linkSignOut">
+                        Cerrar Sesion
+                        </a></li>
+                    </ul>
+                </div>
             </div>
             </div>
         </nav>
@@ -65,8 +73,8 @@
                         <label for="inputPassword" class="form-label">Password</label>
                         <input type="password" name="password" autocomplete="on" class="form-control" id="inputPassword">
                     </div>
-                    <button type="submit" class="btn btn-primary" id="buttonSendUser">Submit</button>
-                  </form>
+                    <button type="submit" class="btn btn-primary" id="buttonSendUser"></button>
+                </form>
             </div>
         </div>
     </main>   

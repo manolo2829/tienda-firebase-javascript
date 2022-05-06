@@ -19,6 +19,8 @@ buttonSend.addEventListener('click', (e) => {
     }else{
         signUser(email, password)
     }
+    form.reset()
+    authUser()
 })
 
 
@@ -39,4 +41,6 @@ if(type){
 }
 
 
-
+window.onload = function(){
+    authUser()
+}

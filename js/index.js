@@ -15,6 +15,4 @@ buttonAddProduct.addEventListener('click', (e) => {
     productForm.reset()
 })
 
-window.onload = function(){
-    readProductsFirebase()
-}
+readProductsFirebase()

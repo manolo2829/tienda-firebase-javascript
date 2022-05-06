@@ -62,6 +62,7 @@ export const createUser = async(email, password) => {
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         const user = userCredential.user;
+        console.log('usuario creado')
         console.log(user)
     })
     .catch((error) => {
@@ -75,6 +76,7 @@ export const signUser = async(email, password) => {
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
     const user = userCredential.user;
+    console.log('sesion iniciada')
     })
     .catch((error) => {
         console.log(error.code)
@@ -89,17 +91,18 @@ export const authUser = () => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             const uid = user.uid;
-            return user;
+            console.log('El auth es true'+ ' ' + uid)
+   
         } else {
-            return null
+            console.log('el auth es false')
         }
     });
+
 }
 
 export const userOut = () => {
     signOut(auth).then(() => {
         console.log('sesion cerrada')
-        authUser()
     }).catch((error) => {
         console.log(error)
     });
