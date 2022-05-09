@@ -23,7 +23,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown d-none" id="loginMethodsContainer">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Usuario
                         </a>
@@ -32,7 +32,7 @@
                             <li><a class="dropdown-item" href="./pages/user.html?form=checkin">Registrarse</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown" >
+                    <li class="nav-item dropdown d-none" id="adminMethodsContainer">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Admin
                         </a>
@@ -42,7 +42,7 @@
                         </ul>
                     </li>
                 </ul>
-                <div class="dropdown navbar-text" id="userMethodsContainer">
+                <div class="dropdown navbar-text d-none" id="userMethodsContainer">
                     <a href="#" class="navbar-text dropdown-toggle" type="button" id="userMethods" data-bs-toggle="dropdown" aria-expanded="false">
                         user
                     </a>
@@ -111,6 +111,7 @@
 
     <script type="module" src="./js/index.js"></script>
     <script type="module" src="./js/global.js"></script>
+    <script type="module" src="./firebase.js"></script>
 
 
 </body>

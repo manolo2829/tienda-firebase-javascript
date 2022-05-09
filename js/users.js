@@ -1,6 +1,5 @@
 import { createUser } from "../firebase.js";
 import { signUser } from "../firebase.js";
-import { authUser } from "../firebase.js";
 
 const valores = window.location.search;
 const urlParams = new URLSearchParams(valores);
@@ -20,7 +19,6 @@ buttonSend.addEventListener('click', (e) => {
         signUser(email, password)
     }
     form.reset()
-    authUser()
 })
 
 
@@ -41,6 +39,4 @@ if(type){
 }
 
 
-window.onload = function(){
-    authUser()
-}
+

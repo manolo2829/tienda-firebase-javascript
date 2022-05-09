@@ -3,13 +3,14 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
 import { collection, getFirestore, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js"
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js"
+import { userContentWrite } from "./js/global.js";
 
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
   // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDCg-MUQVm5bNqvissF-18SVO-o-0wAfjQ",
+    apiKey: "AIzaSyDCg-MUQVm5bNqvissF-18SVO-o-0wAfjQ", 
     authDomain: "tienda-javascript.firebaseapp.com",
     projectId: "tienda-javascript",
     storageBucket: "tienda-javascript.appspot.com",
@@ -24,6 +25,7 @@ const db = getFirestore();
 
 const auth = getAuth();
 
+let userFirebase = false
 
 
 export const addProjectFirebase = async (title, description, price) => {
@@ -51,6 +53,7 @@ export const readProductsFirebase = async() => {
                 <h5 class="card-title">${id.title}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">${id.price}</h6>
                 <p class="card-text">${id.description}</p>
+                <button class='btn btn-primary w-100 addCarritoButton' data-id='${doc.id}'>Añadir a carrito</button>
             </div>
         </div>
         `
@@ -90,11 +93,15 @@ export const signUser = async(email, password) => {
 export const authUser = () => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            const uid = user.uid;
-            console.log('El auth es true'+ ' ' + uid)
-   
+            const uid = user;
+            console.log('El auth es true')
+            userFirebase = uid
+            console.log(userFirebase)
+            userContent()
         } else {
             console.log('el auth es false')
+            userFirebase = false
+            userContent()
         }
     });
 
@@ -105,5 +112,9 @@ export const userOut = () => {
         console.log('sesion cerrada')
     }).catch((error) => {
         console.log(error)
-    });
+    }); 
 }
+
+const userContent = () => {
+    userContentWrite(userFirebase)
+}   

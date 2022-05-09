@@ -6,6 +6,8 @@ const productForm = document.querySelector('.productForm')
 const productContainer = document.querySelector('#cardProductContainer')
 
 
+
+
 buttonAddProduct.addEventListener('click', (e) => {
     const title = productForm.querySelector('#productTitle').value;
     const description = productForm.querySelector('#productDescription').value;
@@ -14,5 +16,13 @@ buttonAddProduct.addEventListener('click', (e) => {
 
     productForm.reset()
 })
+
+
+const addToCarritoItem = (e) => {
+    console.log('añadiendo a carrito')
+    const id = e.data('id')
+    console.log(id)
+}
+
 
 readProductsFirebase()
